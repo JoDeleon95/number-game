@@ -17,17 +17,7 @@ public class NumberGame {
     secret = random.nextInt(100) + 1;
     System.out.println("Guess a number between 1 - 100: ");
     do {
-      guess = input.nextInt();
-      if (guess == 0) {
-        System.out.println("All you had to do was follow the train.");
-      }
-      if (guess > secret) {
-        System.out.println("Too damn high");
-        System.out.println("Guess again");
-      } else if (guess < secret) {
-        System.out.println("Too low nerd.");
-        System.out.println("Guess again");
-      }
+      guess = getGuess(secret);
 
     } while (guess != secret);
     System.out.println("congratulation, you done it.");
@@ -35,6 +25,22 @@ public class NumberGame {
     System.out.println("Play again?: ");
 
 
+  }
+
+  private static int getGuess(int secret) {
+    int guess;
+    guess = input.nextInt();
+    if (guess == 0) {
+      System.out.println("All you had to do was follow the train.");
+    }
+    if (guess > secret) {
+      System.out.println("Too damn high");
+      System.out.println("Guess again");
+    } else if (guess < secret) {
+      System.out.println("Too low nerd.");
+      System.out.println("Guess again");
+    }
+    return guess;
   }
 
 }
